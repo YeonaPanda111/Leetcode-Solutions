@@ -1,0 +1,25 @@
+class Solution:
+    def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        flag=1
+        L=[]
+        ans=[]
+        t=0
+        for i in range(len(l)):
+            L=nums[l[i]:r[i]+1]
+            L.sort()
+            if len(L)>=2:
+                t=L[1]-L[0]
+            else:
+                ans.append(True)
+            for el in range(len(L)-1):
+                if L[el+1]-L[el]==t:
+                    flag=0
+                else:
+                    flag=1  
+                    ans.append(False)
+                    break
+            if flag==0:
+                ans.append(True)
+
+        return ans
+
