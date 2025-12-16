@@ -1,0 +1,4 @@
+class Solution:
+    def minLengthAfterRemovals(self, s: str) -> int:
+        t= abs(s.count("a")- s.count("b"))
+        return t
