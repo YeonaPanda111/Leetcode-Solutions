@@ -1,0 +1,7 @@
+class Solution:
+    def reverseDegree(self, s: str) -> int:
+        sumi=0
+        for i in range(len(s)):
+            sumi+= (122-ord(s[i])+1)*(i+1)
+
+        return sumi
