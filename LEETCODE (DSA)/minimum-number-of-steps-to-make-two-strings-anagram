@@ -1,0 +1,14 @@
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        freq=[0]*26
+        for i in s:
+            freq[ord(i)-97]+=1
+
+        for ch in t:
+            freq[ord(ch)-97]-=1
+
+        ans=0
+        for i in freq:
+            if i>0:
+                ans+=i
+        return ans
