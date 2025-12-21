@@ -1,0 +1,15 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        ans=[]
+        L=[]
+        for x in key:
+            if x != " " and x not in L:
+                L.append(x)
+        for i in message:
+            if i==" ":
+                ans.append(" ")
+            else:
+                I1=L.index(i)
+                ans.append(chr(97+I1))
+            
+        return "".join(ans)
