@@ -1,0 +1,11 @@
+class Solution:
+    def countKDifference(self, nums: List[int], k: int) -> int:
+        ans=0
+        for i in range(len(nums)):
+            a=nums[i]-k
+            b=nums[i]+k
+
+            ans+=nums[i+1:].count(a)
+            ans+=nums[i+1:].count(b)
+
+        return ans
