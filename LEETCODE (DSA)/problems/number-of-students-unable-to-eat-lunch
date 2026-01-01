@@ -1,0 +1,17 @@
+class Solution:
+    def countStudents(self, st: List[int], sa: List[int]) -> int:
+        t=0
+        while(st):
+            if st[0]==sa[0]:
+                del st[0]
+                del sa[0]
+                t=0
+            else:
+                t+=1
+                st.append(st.pop(0))
+                if t==len(st):
+                    break
+
+            
+        return len(st)
+
