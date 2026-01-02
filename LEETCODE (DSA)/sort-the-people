@@ -1,0 +1,5 @@
+class Solution:
+    def sortPeople(self, names: List[str], h: List[int]) -> List[str]:
+        ans=list(zip(h,names))
+        ans.sort(reverse=True)
+        return [names for i, names in ans]
