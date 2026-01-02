@@ -1,0 +1,10 @@
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        ht=[1]*26
+        for i in sentence:
+            ht[ord(i)-97]=0
+        
+        if sum(ht)==0:
+            return True
+        else: 
+            return False
