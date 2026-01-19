@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def reverseOddLevels(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        
+        def f(lc,rc,e):
+            if not lc or not rc:
+                return None
+
+            if e%2!=0:
+                lc.val,rc.val=rc.val,lc.val
+
+            f(lc.left, rc.right,e+1)
+            f(lc.right,rc.left,e+1)
+
+
+
+        f(root.left,root.right,1)
+
+        return root
