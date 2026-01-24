@@ -1,0 +1,27 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        root= TreeNode(preorder[0])
+    
+        def f (root,i):
+            if not root:
+                return TreeNode(i)
+
+            if i<root.val:
+                root.left=f(root.left,i)
+
+            elif i>root.val:
+                root.right=f(root.right,i)
+                
+            return root
+
+        for i in preorder[1: ]:
+            f(root,i)
+
+
+        return root
