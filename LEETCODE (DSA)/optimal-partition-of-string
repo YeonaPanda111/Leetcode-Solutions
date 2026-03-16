@@ -1,0 +1,14 @@
+class Solution:
+    def partitionString(self, s: str) -> int:
+        t=""
+        j=0
+        c=0
+
+        for i in range(len(s)):
+            if s[i] not in s[j:i]:
+                continue
+            else:
+                j=i
+                c+=1
+
+        return c+1
