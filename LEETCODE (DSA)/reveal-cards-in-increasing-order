@@ -1,0 +1,31 @@
+class Solution:
+    def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+        l=len(deck)
+        L=[]
+        ans=[0]*l
+        Q=[ x for x in range(l)]
+
+        if len(Q)<2:
+            return deck
+
+        else:
+            while(Q):
+                if len(Q)>2:
+                    L.append(Q.pop(0))
+                    t=Q[0]
+                    Q.pop(0)
+                    Q.append(t)
+
+                else:
+                    L.append(Q[0])
+                    L.append(Q[1])
+                    break
+
+        S=sorted(deck)
+
+        for i, j in zip(L,S):
+            ans[i]=j
+
+        return ans
+
+ 
